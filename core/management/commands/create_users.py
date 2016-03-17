@@ -40,13 +40,14 @@ class Command(BaseCommand):
                 'username': email
             }
 
-            user = get_user_model(**user_attr)
+            userModel = get_user_model()
+            user = userModel(**user_attr)
             user.save()
 
             person_attr = {
                 'office_location': office_location,
                 'allow_tagging': True,
-                'photo_file': 'avatars/default1.jpg',
+                'photo_file': 'avatars/default.jpg',
                 'stub': username.replace('.', ''),
                 'office_phone': '5555555555',
                 'user': user,
